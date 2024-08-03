@@ -30,12 +30,12 @@ const ExperienceCard = ({ company, role, duration, description, skills }) => {
   return (
     <div
       ref={cardRef}
-      className={`experience-card bg-gray-900 text-left rounded-lg overflow-hidden shadow-lg transition-all duration-1000 border border-gray-700 ${
+      className={`experience-card bg-gray-800 text-left rounded-lg overflow-hidden shadow-lg transition-all duration-1000 border border-gray-700 ${
         isVisible ? 'opacity-100 transform-none' : 'opacity-0 transform rotate-y-180'
       }`}
       style={{ perspective: '1000px' }}
     >
-      <div className="bg-gray-800 px-4 py-2 flex items-center justify-between">
+      <div className="bg-gray-700 px-4 py-2 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <div className="w-3 h-3 rounded-full bg-red-500"></div>
           <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
