@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import IDEStyleAboutMe from './AboutMe';
+import IDEStyleAboutMe from './aboutme';
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const items = ["Aditya", "Web developer", "MLOps","Web developer"];
