@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
+body {
+  font-family:'Roboto';
+  background-color: #131417;  
+}
+
+.container {
+  color: #e5e5e5;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animation {
+  height:50px;
+  overflow:hidden;
+  margin-left: 1rem;
+}
+
+.animation > div > div {
+  padding: 0.25rem 0.75rem;
+  height:2.81rem;
+  margin-bottom: 2.81rem;
+  display:inline-block;
+}
+
+.animation div:first-child {
+  animation: text-animation 8s infinite;
+}
+
+#first div {
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    background-color:rgba(32, 167, 216,0.5);
+}
+#second div {
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    background-color:rgba(205, 147, 30, 0.5);
+}
+#third div {
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+  background-color:rgba(193, 5, 40,0.5);
+}
+
+@keyframes text-animation {
+  0% {margin-top: 0;}
+  10% {margin-top: 0;}
+  20% {margin-top: -5.20rem;}
+  30% {margin-top: -5.20rem;}
+  40% {margin-top: -10.50rem;}
+  60% {margin-top: -10.50rem;}
+  70% {margin-top: -5.20rem;}
+  80% {margin-top: -5.20rem;}
+  90% {margin-top: 0;}
+  100% {margin-top: 0;}
+}
