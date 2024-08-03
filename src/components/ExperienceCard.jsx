@@ -34,12 +34,22 @@ const ExperienceCard = ({ company, role, duration, description, skills }) => {
       }`}
       style={{ perspective: '1000px' }}
     >
+      <div className="bg-gray-800 px-4 py-2 flex items-center justify-between">
+        <div className="flex items-center space-x-2">
+          <div className="w-3 h-3 rounded-full bg-red-500"></div>
+          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+          <div className="w-3 h-3 rounded-full bg-green-500"></div>
+        </div>
+        <span className="text-gray-300 text-sm font-medium">{company}.js</span>
+        <div className="w-4"></div>
+      </div>
+
       <div className="p-4">
-        <div className="flex items-left gap-1 mb-2">
+        <div className="flex items-center mb-2">
           <span className="text-red-400">const</span>
-          <span className="text-blue-300">{company}</span>
-          <span className="text-yellow-300">=</span>
-          <span className="text-green-300">{'{'}</span>
+          <span className="text-blue-300 ml-2">{company.replace(/\s+/g, '')}</span>
+          <span className="text-yellow-300 ml-2">=</span>
+          <span className="text-green-300 ml-2">{'{'}</span>
         </div>
         <div className="pl-4 text-purple-300">
           <p>role: <span className="text-yellow-300">"{role}"</span>,</p>
@@ -69,5 +79,7 @@ const ExperienceCard = ({ company, role, duration, description, skills }) => {
     </div>
   );
 };
+
+
 
 export default ExperienceCard;

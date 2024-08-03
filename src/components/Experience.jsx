@@ -1,6 +1,6 @@
 
 import ExperienceCard from './ExperienceCard';
-
+import EmptyExperienceCard from './EmptyExperienceCard';
 const Experience = () => {
   const experiences = [
     {
@@ -14,7 +14,7 @@ const Experience = () => {
     {
       company: 'Falana Land',
       role: 'Graphic Design Intern',
-      duration: 'Nov 2024 - March 2021',
+      duration: 'Nov 2023 - Jan 2024',
       description: 'Created compelling visual designs for various events and concerts, focusing on eye-catching posters to promote and market these occasions.',
       skills: ['After Effects', 'Photo shop', 'Stable Diffusion'],
       image: '/path/to/startup-inc-image.jpg'
@@ -32,6 +32,8 @@ const Experience = () => {
         {experiences.map((exp, index) => (
           <ExperienceCard key={index} {...exp} />
         ))}
+
+        <EmptyExperienceCard/>
       </div>
     </div>
   );
