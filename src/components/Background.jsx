@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import Foreground from './Foreground'
+import Foreground from './Foreground';
 
-const FullScreenBubblesWithCard = () => {
-  const [bubbles, setBubbles] = useState([]);
+const IDEGlassmorphismBackground = () => {
+  const [particles, setParticles] = useState([]);
   const containerRef = useRef(null);
   const mouseFollowerRef = useRef(null);
   const rafRef = useRef(null);
@@ -18,26 +18,24 @@ const FullScreenBubblesWithCard = () => {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setBubbles(prevBubbles => [
-        ...prevBubbles,
-        {
-          id: Date.now(),
-          left: Math.random() * 100,
-          size: Math.random() * 30 + 10,
-          animationDuration: Math.random() * 8 + 4
-        }
-      ]);
-    }, 1000);
+    const createParticles = () => {
+      const newParticles = [];
+      for (let i = 0; i < 50; i++) {
+        newParticles.push({
+          id: i,
+          x: Math.random() * 100,
+          y: Math.random() * 100,
+          size: Math.random() * 3 + 1,
+          color: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.5)`,
+          duration: Math.random() * 20 + 10,
+          delay: Math.random() * 5,
+        });
+      }
+      setParticles(newParticles);
+    };
 
-    return () => clearInterval(interval);
+    createParticles();
   }, []);
-
-  useEffect(() => {
-    if (bubbles.length > 50) {
-      setBubbles(prevBubbles => prevBubbles.slice(1));
-    }
-  }, [bubbles]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -55,19 +53,33 @@ const FullScreenBubblesWithCard = () => {
 
   return (
     <>
-      <div ref={containerRef} className="relative h-screen w-full overflow-hidden bg-gradient-to-r from-slate-900 to-slate-700">
-        {bubbles.map(bubble => (
+      <div ref={containerRef} className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+        {particles.map((particle) => (
           <div
-            key={bubble.id}
-            className="absolute rounded-lg bg-gradient-to-br from-violet-500 to-black shadow-lg shadow-violet-500/50 hover:shadow-xl hover:shadow-violet-500/70 transition-shadow duration-300"
+            key={particle.id}
+            className="absolute rounded-full animate-pulse"
             style={{
-              left: `${bubble.left}%`,
-              width: `${bubble.size}px`,
-              height: `${bubble.size}px`,
-              animation: `float ${bubble.animationDuration}s linear infinite`
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+              backgroundColor: particle.color,
+              boxShadow: `0 0 ${particle.size * 2}px ${particle.color}`,
+              animation: `float ${particle.duration}s infinite linear, pulse 2s infinite`,
+              animationDelay: `${particle.delay}s`,
             }}
           />
         ))}
+        <div
+          className="absolute inset-0 animate-pan"
+          style={{
+            backgroundImage: `
+              linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3)),
+              repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 20px),
+              repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 20px)
+            `,
+          }}
+        />
         <div
           ref={mouseFollowerRef}
           className="absolute pointer-events-none w-[300px] h-[300px]"
@@ -75,13 +87,31 @@ const FullScreenBubblesWithCard = () => {
             left: 'var(--mouse-x, 0px)',
             top: 'var(--mouse-y, 0px)',
             transform: 'translate(-50%, -50%)',
-            background: 'radial-gradient(circle, rgba(124,58,237,0.5) 0%, rgba(124,58,237,0) 70%)',
+            background: 'radial-gradient(circle, rgba(124,58,237,0.2) 0%, rgba(124,58,237,0) 70%)',
           }}
         />
       </div>
-      <Foreground/>
+      <Foreground />
+      <style jsx>{`
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+          100% { transform: translateY(0px); }
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.6; }
+        }
+        @keyframes pan {
+          0% { background-position: 0% 0%; }
+          100% { background-position: 100% 100%; }
+        }
+        .animate-pan {
+          animation: pan 30s linear infinite;
+        }
+      `}</style>
     </>
   );
 };
 
-export default FullScreenBubblesWithCard;
+export default IDEGlassmorphismBackground;
