@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const ExperienceCard = ({ company, role, duration, description, skills }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,7 +29,7 @@ const ExperienceCard = ({ company, role, duration, description, skills }) => {
   return (
     <div
       ref={cardRef}
-      className={`experience-card bg-gray-900 rounded-lg overflow-hidden shadow-lg transition-all duration-1000 border border-gray-700 ${
+      className={`experience-card bg-gray-900 text-left rounded-lg overflow-hidden shadow-lg transition-all duration-1000 border border-gray-700 ${
         isVisible ? 'opacity-100 transform-none' : 'opacity-0 transform rotate-y-180'
       }`}
       style={{ perspective: '1000px' }}

@@ -28,7 +28,7 @@ const FullScreenBubblesWithCard = () => {
           animationDuration: Math.random() * 8 + 4
         }
       ]);
-    }, 500);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);

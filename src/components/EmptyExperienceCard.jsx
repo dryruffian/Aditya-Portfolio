@@ -14,15 +14,28 @@ const EmptyExperienceCard = () => {
           setIsVisible(true);
           observer.unobserve(entry.target);
           
-          // Start typing animation when card becomes visible
           let index = 0;
+          let isDeleting = false;
           typingInterval = setInterval(() => {
-            setText(fullText.slice(0, index));
-            index++;
-            if (index > fullText.length) {
-              clearInterval(typingInterval);
+            if (!isDeleting) {
+              setText(fullText.slice(0, index));
+              index++;
+              if (index > fullText.length) {
+                isDeleting = true;
+                index = fullText.length;
+                
+                setTimeout(() => { isDeleting = true; }, 1000);
+              }
+            } else {
+              setText(fullText.slice(0, index));
+              index--;
+              if (index === 0) {
+                isDeleting = false;
+                
+                setTimeout(() => { isDeleting = false; }, 500);
+              }
             }
-          }, 100); // Adjust typing speed here
+          }, 100); 
         }
       },
       { threshold: 0.1 }
@@ -43,7 +56,7 @@ const EmptyExperienceCard = () => {
   return (
     <div 
       ref={cardRef}
-      className={`experience-card bg-gray-900 text-center items-center rounded-lg overflow-hidden shadow-lg transition-all duration-1000 border border-gray-700 ${
+      className={`experience-card bg-gray-900 rounded-lg overflow-hidden shadow-lg transition-all duration-1000 border border-gray-700 ${
         isVisible ? 'opacity-100 transform-none' : 'opacity-0 transform rotate-y-180'
       }`}
     >
@@ -57,7 +70,6 @@ const EmptyExperienceCard = () => {
         <div className="w-4"></div>
       </div>
 
-      {/* Card content */}
       <div className="p-4 flex-grow flex items-center justify-center">
         <div className="text-green-400 text-lg font-mono">
           <span className="mr-1">&gt;</span>

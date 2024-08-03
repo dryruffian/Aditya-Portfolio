@@ -1,6 +1,7 @@
 
 import ExperienceCard from './ExperienceCard';
 import EmptyExperienceCard from './EmptyExperienceCard';
+
 const Experience = () => {
   const experiences = [
     {
@@ -9,7 +10,7 @@ const Experience = () => {
       duration: 'Jan 2023 - May 2023',
       description: 'Developed multiple web scrapers using Scrapy, BeautifulSoup, and Selenium to automate lead generation and contact information extraction. This initiative resulted in a 1000% increase in lead generation efficiency.',
       skills: ['Python', 'Beautiful Soup4', 'Selenium', 'Scrapy'],
-      image: '/path/to/tech-co-image.jpg'
+      image: ""
     },
     {
       company: 'Falana Land',
@@ -23,7 +24,7 @@ const Experience = () => {
   ];
 
   return (
-    <div className="my-3 text-white w-full p-4 md:p-8 rounded-3xl bg-gradient-to-b from-white/20 to-white/10 backdrop-blur-md border-b border-white/20 shadow-lg relative">
+    <div className="my-3 text-white text-center w-full p-4 md:p-8 rounded-3xl bg-gradient-to-b from-white/20 to-white/10 backdrop-blur-md border-b border-white/20 shadow-lg relative">
       <h1 className="text-2xl font-bold mb-6 relative inline-block">
         Experience
         <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
