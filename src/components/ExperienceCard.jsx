@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 
 const ExperienceCard = ({ company, role, duration, description, skills }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -52,11 +53,11 @@ const ExperienceCard = ({ company, role, duration, description, skills }) => {
           <span className="text-green-300 ml-2">{'{'}</span>
         </div>
         <div className="pl-4 text-purple-300">
-          <p>role: <span className="text-yellow-300">"{role}"</span>,</p>
-          <p>duration: <span className="text-yellow-300">"{duration}"</span>,</p>
+          <p>role: <span className="text-yellow-300">{'"'}{role}{'"'}</span>,</p>
+          <p>duration: <span className="text-yellow-300">{'"'}{duration}{'"'}</span>,</p>
         </div>
         <div className="mt-4 pl-4">
-          <p className="text-purple-300">description: <span className="text-gray-300">"{description}"</span></p>
+          <p className="text-purple-300">description: <span className="text-gray-300">{'"'}{description}{'"'}</span></p>
         </div>
         <div className="mt-4 pl-4">
           <span className="text-purple-300">skills: [</span>
@@ -66,7 +67,7 @@ const ExperienceCard = ({ company, role, duration, description, skills }) => {
                 key={index}
                 className="px-2 py-1 bg-gray-800 rounded-md text-xs text-blue-300"
               >
-                "{skill}"{index < skills.length - 1 ? ',' : ''}
+               {'"'}{skill}{'"'}{index < skills.length - 1 ? ',' : ''}
               </span>
             ))}
           </div>
@@ -80,6 +81,12 @@ const ExperienceCard = ({ company, role, duration, description, skills }) => {
   );
 };
 
-
+ExperienceCard.propTypes = {
+  company: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired,
+  duration: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  skills: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default ExperienceCard;

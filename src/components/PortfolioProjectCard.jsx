@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 
 const PortfolioProjectCard = ({ title, description, skills, link, image }) => {
   return (
@@ -26,5 +26,13 @@ const PortfolioProjectCard = ({ title, description, skills, link, image }) => {
     </div>
   );
 };
+
+PortfolioProjectCard.propTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    skills: PropTypes.arrayOf(PropTypes.string).isRequired,
+  };
 
 export default PortfolioProjectCard;

@@ -1,16 +1,25 @@
 import PortfolioProjectCard from './PortfolioProjectCard';
 import CodeCartograhper from '../assets/Code Cartograhper.jpeg';
+import BERTneural from '../assets/BERT neural network.jpeg';
+
 
 
 const Projects = () => {
   const projects = [
+    {
+      title: "Neural network based sequence classifier",
+      description: "Made an Sequence classifier using state-of-the-art BERT model",
+      skills: ["python","Pytorch","javascript","fastapi","transformers","cuda","pydantic"],
+      link: "https://github.com/dryruffian/Fake-Tweet-Detector-Binary-Classification-Using-neural-networks",
+      image: BERTneural
+    },
     {
       title: "Code Cartographer UI",
       description: "This tool The tool extracts the contents of the uploaded archive, generates a directory tree, and displays the contents of text files while respecting .gitignore patterns and common ignore rules.",
       skills: ["python"],
       link: "https://github.com/dryruffian/CodeCartographerUI",
       image: CodeCartograhper
-    },
+    }
   ];
 
   return (
