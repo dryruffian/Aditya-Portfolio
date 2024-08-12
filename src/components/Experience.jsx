@@ -6,10 +6,10 @@ const Experience = () => {
   const experiences = [
     {
       company: 'AARP Communication',
-      role: 'Data Science Intern',
-      duration: 'Jan 2023 - May 2023',
-      description: 'Developed multiple web scrapers using Scrapy, BeautifulSoup, and Selenium to automate lead generation and contact information extraction. This initiative resulted in a 1000% increase in lead generation efficiency.',
-      skills: ['Python', 'Beautiful Soup4', 'Selenium', 'Scrapy'],
+      role: 'Frontend intern',
+      duration: 'JNov 2023-April 2024 ',
+      description: 'Implemented complex react project	Created a node based planner added to the SMS(Subscriber management system)',
+      skills: ['React','Python', 'Beautiful Soup4', 'Selenium', 'Scrapy'],
       image: ""
     },
     {
