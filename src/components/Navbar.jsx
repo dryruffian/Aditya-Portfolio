@@ -5,13 +5,13 @@ const Navbar = ({ activeSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-bfrom-violet-200 to-pink-200 backdrop-blur-md border-b border-white/20 shadow-lg">
+    <nav className="text-white fixed top-0 left-0 right-0 z-50 bg-gradient-to-bfrom-violet-200 to-pink-200 backdrop-blur-md border-b border-white/20 shadow-lg">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex justify-between items-center h-12">
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-800 hover:text-indigo-600 focus:outline-none"
+              className="text-white hover:text-indigo-600 focus:outline-none"
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
