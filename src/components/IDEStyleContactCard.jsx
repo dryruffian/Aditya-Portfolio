@@ -35,7 +35,7 @@ const IDEStyleContactCard = () => {
           </div>
         </div>
         <div className="flex h-[calc(100%-40px)]">
-          <div className="w-1/2 p-4 font-mono text-lg text-cyan-400 border-r border-gray-700">
+          <div className="w-full md:w-1/2 p-4 font-mono text-lg text-cyan-400 border-r border-gray-700">
             <p className="mb-4">
               <span className="text-pink-400">const</span>{' '}
               <span className="text-blue-300">ContactForm</span> ={' '}
@@ -84,7 +84,7 @@ const IDEStyleContactCard = () => {
             </div>
             <p className="mt-4">{'};'}</p>
           </div>
-          <div className="w-1/2 p-4 font-mono text-lg text-wrap text-cyan-400">
+          <div className="hidden md:block md:w-1/2 p-4 font-mono text-lg text-wrap text-cyan-400">
             <p className="mb-4">
               <span className="text-pink-400">const</span>{' '}
               <span className="text-blue-300">button</span> = 
