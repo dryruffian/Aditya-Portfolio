@@ -4,6 +4,7 @@ import Hero from "./Hero";
 import IDEStyleContactCard from "./IDEStyleContactCard";
 import Navbar from "./Navbar";
 import Projects from "./Projects";
+import Footer from './footer';
 
 const Glasscard = () => {
     const [activeSection, setActiveSection] = useState('');
@@ -45,9 +46,10 @@ const Glasscard = () => {
                         <section id="work"><Experience /></section>
                         <section id="projects"><Projects /></section>
                         <section id="contact"><IDEStyleContactCard /></section>
+                        
                     </div>
                     <div className="sticky bottom-0 z-10">
-                        
+                    <section><Footer/></section>
                     </div>
                 </div>
             </div>
